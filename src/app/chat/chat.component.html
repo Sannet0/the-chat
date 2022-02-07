@@ -1,0 +1,4 @@
+<div class="chat">
+    <app-message *ngFor="let id of messagesIds" [actualUserId]="actualUserId" [message]="{ id, text: messages[id].text, user_id: messages[id].user_id }"></app-message>
+</div>
+<input class="task-input" placeholder="Enter your message here" [(ngModel)]="currentMessageName" (keyup.enter)="addNewMessage()">

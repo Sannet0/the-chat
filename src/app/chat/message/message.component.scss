@@ -1,0 +1,32 @@
+div.message {
+  width: 100%;
+
+  div {
+    margin: 10px 0 0 0;
+
+    width: 200px;
+    height: 20px;
+
+    background-color: #eeeeee;
+    border-radius: 10px 10px 10px 2px;
+
+    padding-left: 10px;
+
+    overflow: auto;
+  }
+}
+
+div.message.user {
+  display: flex;
+  justify-content: flex-end;
+
+  div {
+    padding-right: 10px;
+    text-align: right;
+
+    border-radius: 10px 10px 2px 10px;
+
+    background-color: lightblue;
+    color: #2c2c2c;
+  }
+}
