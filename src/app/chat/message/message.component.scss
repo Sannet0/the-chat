@@ -1,29 +1,52 @@
-div.message {
+.message {
   width: 100%;
 
-  div {
-    margin: 10px 0 0 0;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  justify-content: space-between;
 
-    width: 200px;
+  .username {
+    width: 210px;
     height: 20px;
 
+    display: flex;
+    align-items: flex-end;
+
     background-color: #eeeeee;
-    border-radius: 10px 10px 10px 2px;
+    border-radius: 10px 10px 0 0;
+    margin: 10px 0 0 0;
+    color: #939393;
 
-    padding-left: 10px;
+    font-size: small;
 
-    overflow: auto;
+    padding: 0 0 0 10px;
+  }
+
+  .message-content {
+    width: 200px;
+
+    background-color: #eeeeee;
+    border-radius: 0 0 10px 2px;
+    border: solid 0;
+
+    padding: 5px 10px 5px 10px;
   }
 }
 
-div.message.user {
+.message.user {
+
   display: flex;
-  justify-content: flex-end;
+  align-items: flex-end;
 
-  div {
-    padding-right: 10px;
+  .username {
+    background-color: lightblue;
     text-align: right;
+    height: 0;
+  }
 
+  .message-content {
+    padding-right: 10px;
     border-radius: 10px 10px 2px 10px;
 
     background-color: lightblue;

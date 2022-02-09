@@ -1,0 +1,27 @@
+<form class="auth-form" [formGroup]="registrationForm">
+    <div class="message">
+        <div class="message-content">
+            please enter username
+        </div>
+    </div>
+    <div [class]="firstTry || registrationForm.get('login')?.valid ? 'message user' : 'message user error'">
+        <input class="message-content" formControlName="login" placeholder="...">
+    </div>
+    <div class="message">
+        <div class="message-content">
+            please enter password
+        </div>
+    </div>
+    <div [class]="firstTry || registrationForm.get('password')?.valid ? 'message user' : 'message user error'">
+        <input class="message-content" [type]="'password'" formControlName="password" placeholder="...">
+    </div>
+    <div class="message">
+        <div class="message-content">
+            please repeat password
+        </div>
+    </div>
+    <div [class]="firstTry || registrationForm.get('repPassword')?.valid ? 'message user' : 'message user error'">
+        <input class="message-content" [type]="'password'" formControlName="repPassword" placeholder="...">
+    </div>
+    <button (click)="registration()" [disabled]="!firstTry && registrationForm.invalid">REGISTRATION</button>
+</form>

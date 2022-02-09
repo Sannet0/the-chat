@@ -1,5 +1,8 @@
 <div class="{{ class }}">
-    <div>
+    <div class="username">
+        {{ isUserMessage ? '' : message.user_name }}
+    </div>
+    <div class="message-content">
         {{ message.text }}
     </div>
 </div>

@@ -1,0 +1,19 @@
+<form class="auth-form" [formGroup]="loginForm">
+    <div class="message">
+        <div class="message-content">
+            please enter username
+        </div>
+    </div>
+    <div [class]="firstTry || loginForm.get('login')?.valid ? 'message user' : 'message user error'">
+        <input class="message-content" formControlName="login" placeholder="username">
+    </div>
+    <div class="message">
+        <div class="message-content">
+            please enter password
+        </div>
+    </div>
+    <div [class]="firstTry || loginForm.get('password')?.valid ? 'message user' : 'message user error'">
+        <input class="message-content" [type]="'password'" formControlName="password" placeholder="password">
+    </div>
+    <button (click)="login()" [disabled]="!firstTry && loginForm.invalid">LOGIN</button>
+</form>

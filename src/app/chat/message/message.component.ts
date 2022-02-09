@@ -7,14 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
 
-  @Input() message: { id: string, text: string, user_id: string };
-  @Input() actualUserId: string;
+  @Input() message: { id: string, text: string, user_id: string, user_name: string };
+  @Input() userInfo: { id: string, login: string };
   class: string = 'message';
+  isUserMessage: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
-    if(this.actualUserId === this.message.user_id){
+    this.isUserMessage = this.userInfo.id === this.message.user_id;
+
+    if(this.isUserMessage){
       this.class += ' user';
     }
   }

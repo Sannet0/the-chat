@@ -1,4 +1,38 @@
-<div class="chat">
-    <app-message *ngFor="let id of messagesIds" [actualUserId]="actualUserId" [message]="{ id, text: messages[id].text, user_id: messages[id].user_id }"></app-message>
+<div class="full">
+    <div class="board right">
+        <div class="board-chats" *ngFor="let chat of chats" (click)="goToChat(chat)">
+            {{ chat }}
+        </div>
+        <div class="board-chats">
+            <input class="add-new-chat" placeholder="add new chat" [(ngModel)]="currentChatName">
+            <div class="add-new-chat" (click)="createNewChat()">+</div>
+        </div>
+    </div>
+    <div>
+        <div class="chat-name">
+            {{ chatName }}
+        </div>
+        <div class="chat">
+            <input class="task-input" placeholder="Enter your message here" [(ngModel)]="currentMessageName" (keyup.enter)="addNewMessage()">
+            <div class="messages">
+                <app-message *ngFor="let id of messagesIds"
+                             [userInfo]="userInfo"
+                             [message]="{ id, text: messages[id].text, user_id: messages[id].user_id, user_name: messages[id].user_name }">
+                </app-message>
+            </div>
+        </div>
+    </div>
+    <div class="board left">
+        <div class="board-users">
+            <div *ngFor="let user_name of usersInChat">
+                <div>
+                    {{ user_name }}
+                </div>
+<!--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">-->
+<!--                    <path d="M21.29,5a1,1,0,0,0-1.12.41l-3.09,4.63L12.87,2.51a1,1,0,0,0-1.74,0L6.92,10.08,3.83,5.45A1,1,0,0,0,2,6V21a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V6A1,1,0,0,0,21.29,5ZM4,9.3l2.17,3.25A.94.94,0,0,0,7,13a1,1,0,0,0,.83-.51L12,5.06l4.13,7.43A1,1,0,0,0,17,13a1,1,0,0,0,.87-.45L20,9.3V17H4ZM20,20H4V19H20Z" data-name="78 Crown"/>-->
+<!--                </svg>-->
+            </div>
+        </div>
+    </div>
 </div>
-<input class="task-input" placeholder="Enter your message here" [(ngModel)]="currentMessageName" (keyup.enter)="addNewMessage()">
+

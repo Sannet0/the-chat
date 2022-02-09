@@ -1,0 +1,47 @@
+.auth-form {
+  width: 298px;
+  min-height: 160px;
+  padding: 7px;
+
+  background-color: white;
+
+  border-radius: 10px;
+
+  button {
+    cursor: pointer;
+
+    width: 100%;
+    height: 23px;
+
+    border-radius: 2px;
+
+    border: 0;
+
+    margin: 10px 0 0 0;
+  }
+}
+
+.message {
+  input.message-content {
+    height: 18px;
+  }
+}
+
+.message.user.error {
+  .message-content {
+    color: #000;
+    outline: solid 2px red;
+
+    animation-name: message-error;
+    animation-duration: 1s;
+  }
+}
+
+@keyframes message-error {
+  0% {
+    outline: solid 2px transparent;
+  }
+  100% {
+    outline: solid 2px red;
+  }
+}
