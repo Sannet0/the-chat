@@ -15,10 +15,9 @@ export class MessageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.isUserMessage = this.userInfo.id === this.message.user_id;
-
+    this.isUserMessage = this.userInfo.id == this.message.user_id;
     if(this.isUserMessage){
-      this.class += ' user';
+      this.class = 'message user';
     }
   }
 

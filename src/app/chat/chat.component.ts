@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Manager } from 'socket.io-client';
+import { io, Manager } from 'socket.io-client';
 import { environment } from '../../environments/environment';
 import { UserService } from '../service/user.service';
 import { StorageService } from '../service/storage.service';
@@ -56,7 +56,8 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.manager = new Manager(environment.wsUrl, {
         query: {
           room: chatName,
-          user_name: user.login
+          user_name: user.login,
+          user_id: user.id
         }
       });
 
